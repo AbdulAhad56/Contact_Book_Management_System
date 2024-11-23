@@ -96,4 +96,7 @@ The application includes the following modules:
 ---
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Apache License 2.0. You may obtain a copy of the license at:
+
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
