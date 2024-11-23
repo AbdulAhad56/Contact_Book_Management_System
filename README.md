@@ -81,13 +81,6 @@ The application includes the following modules:
 
 ---
 
-## Future Enhancements
-- Implementing advanced search algorithms for faster queries.
-- Adding GUI support for a more interactive user experience.
-- Enhancing backup functionality with cloud storage options.
-
----
-
 ## Contributors
 - **Roll No.: 2023-CS-454**
 - **Roll No.: 2023-CS-456**
