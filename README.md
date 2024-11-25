@@ -81,6 +81,16 @@ The application includes the following modules:
 
 ---
 
+## Sample Output
+Below is a sample output of the **Contact Book Management System**:
+
+![Sample Output](assets/sample-output.png)
+
+For a detailed demonstration, check the animated example:  
+![Demo GIF](assets/demo.gif)
+
+---
+
 ## Contributors
 - **Roll No.: 2023-CS-454**
 - **Roll No.: 2023-CS-456**
