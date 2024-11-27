@@ -83,26 +83,26 @@ The application includes the following modules:
 
 ## Sample Outputs
 
-![OUTPUT](assets/sample-output-1.png)
+![SCREENSHOT-1](assets/screenshot-1.png)
 
-![OUTPUT](assets/sample-output-2.png)
+![SCREENSHOT-2](assets/screenshot-2.png)
 
-![OUTPUT](assets/sample-output-3.png)
+![SCREENSHOT-3](assets/screenshot-3.png)
 
-![OUTPUT](assets/sample-output-4.png)
+![SCREENSHOT-4](assets/screenshot-4.png)
 
-![OUTPUT](assets/sample-output-5.png)
+![SCREENSHOT-5](assets/screenshot-5.png)
 
-![OUTPUT](assets/sample-output-6.png)
+![SCREENSHOT-6](assets/screenshot-6.png)
 
-![OUTPUT](assets/sample-output-7.png)
+![SCREENSHOT-7](assets/screenshot-7.png)
 
 ---
 
 ## Contributors
-- **Roll No.: 2023-CS-454**
-- **Roll No.: 2023-CS-456**
-- **Roll No.: 2023-CS-480**
+- **Roll No.: 2023-CS-454**  - **Name: Wafa Abbas**
+- **Roll No.: 2023-CS-456**  - **Name: Abdul Ahad**
+- **Roll No.: 2023-CS-480**  - **Name: Muhammad Zaman**
 
 ---
 
