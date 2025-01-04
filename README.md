@@ -91,12 +91,6 @@ The application includes the following modules:
 
 ![SCREENSHOT-4](assets/screenshot-4.png)
 
-![SCREENSHOT-5](assets/screenshot-5.png)
-
-![SCREENSHOT-6](assets/screenshot-6.png)
-
-![SCREENSHOT-7](assets/screenshot-7.png)
-
 ---
 
 ## Contributors
