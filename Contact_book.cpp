@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include <sstream>
+#include<windows.h>
 using namespace std;
 struct Node
 {
@@ -29,7 +30,6 @@ class ContactBook
 	    	    cout<<"  Name of Contact: ";
 		        cin>>x;
 		        newer->name=x;
-
     		    cout<<"  Phone Number: ";
 	    	    cin>>y;
 		        newer->phone_number=y;
@@ -92,9 +92,10 @@ class ContactBook
     	{
     		bool check=false;
 	    	Node *temp=head;
-	    	cout<<"***********"<<endl;
+	    	cout<<"******************************************"<<endl;
 	    	cout<<"  Press 1 if you want to Search By Name."<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number."<<endl;
+	    	cout<<"******************************************"<<endl;
 	    	int command;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>command;
@@ -107,10 +108,10 @@ class ContactBook
 		    	{
 		        	if(temp->name==x)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"**********************************"<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number:"<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"**********************************"<<endl;
 		        		check=true;
 		        		break;
 		        	}
@@ -130,10 +131,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"*******************************"<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"*******************************"<<endl;
 		        		check=true;
 		        		break;
 		        	}
@@ -151,8 +152,9 @@ class ContactBook
 	    	Node *temp2;
 	    	if(head==NULL)
 	    	{
+	    		cout<<"*******************************"<<endl;
 	    		cout<<"  Already Contact Book is Empty"<<endl;
-	    		cout<<"***********"<<endl;
+	    		cout<<"*******************************"<<endl;
 			}
 			else
 			{
@@ -163,8 +165,9 @@ class ContactBook
 					delete temp2;
 				}
 				head=NULL;
+				cout<<"***********************************"<<endl;
 				cout<<"  Successfully Deleted All Contacts"<<endl;
-	    		cout<<"***********"<<endl;
+	    		cout<<"***********************************"<<endl;
 			}
 		}
 		
@@ -172,9 +175,10 @@ class ContactBook
     	{
     		
 	    	Node *temp=head;
-	    	cout<<"***********"<<endl;
+	    	cout<<"*****************************************"<<endl;
 	    	cout<<"  Press 1 if you want to Search By name"<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number"<<endl;
+	    	cout<<"*****************************************"<<endl;
 	    	int command;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>command;
@@ -188,10 +192,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->name==x)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"*************************"<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"*************************"<<endl;
 		        		Dcheck=true;
 		        		break;
 		        	}
@@ -247,10 +251,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"*****************************"<<endl;
 		        		cout<<"name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"*****************************"<<endl;
 		        		Dcheck=true;
 		        		break;
 		        	}
@@ -337,9 +341,10 @@ class ContactBook
         int EditContacts()
     	{
 	    	Node *temp=head;
-	    	cout<<"***********"<<endl;
+	    	cout<<"*****************************************"<<endl;
 	    	cout<<"  Press 1 if you want to Search By Name"<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number"<<endl;
+	    	cout<<"*****************************************"<<endl;
 	    	int Ecommand;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>Ecommand;
@@ -353,10 +358,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->name==x)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"************************"<<endl;
 		        		cout<<"Name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"************************"<<endl;
 		        		Echeck=true;
 		        		break;
 		        	}
@@ -398,10 +403,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"***********"<<endl;
+		        		cout<<"*************************"<<endl;
 		        		cout<<"Name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"***********"<<endl;
+		        		cout<<"*************************"<<endl;
 		        		Echeck=true;
 		        		break;
 		        	}
@@ -532,84 +537,117 @@ class ContactBook
             	cout<<"  File is Empty so Cannot open...Sorry"<<endl;
 			}
 		}
-		void Structure()
-    	{
-	    	cout<<"***********"<<endl;
-	    	cout<<"  1. Add Contact"<<endl;
-	    	cout<<"  2. Edit the Contact"<<endl;
-	    	cout<<"  3. Delete Contact"<<endl;
-	    	cout<<"  4. Search Contact"<<endl;
-	    	cout<<"  5. Display All Contacts"<<endl;
-	    	cout<<"  6. Delete All Contacts"<<endl;
-	    	cout<<"***********"<<endl;
-		
-	    	int Scommand;
-	    	cout<<"  Enter the Command: ";
-	    	cin>>Scommand;
-	    	try
-	    	{
-	    		if(Scommand>=1&&Scommand<=6)
-	    		{
-	    			if(Scommand==1)
-	            	{
-	            		CreateNode();
-	            		OflineSave();
-	    	        	Structure();
-	            	}
-	            	else if(Scommand==2)
-		        	{
-		        		EditContacts();
-		        		OflineSave();
-		        		Structure();
-			        }
-	            	else if(Scommand==3)
-	            	{
-	    	        	DeleteContactBySearch();
-	    	        	Structure();
-	            	}
-	            	else if(Scommand==4)
-	            	{
-	            		Search();
-	            		Structure();
-	            	}
-	            	else if(Scommand==5)
-	            	{      		
-	            		Display();
-	            		OflineSave();
-	            		Structure();
-	            	}
-	            	else if(Scommand==6)
-	            	{
-	            		DeleteAllContacts();
-	            		OflineSave();
-	            		Structure();	
-		        	}
-				}
-				else
-				{
-					throw(Scommand);
-				}
-			}
-			catch(int Scommand)
-			{
-				cout<<"  You Enter wrong Command... Run the Code Again"<<endl;
-				Structure();
-			}	
-	    }
-    	
+void Structure()
+{
+    cout << "********************************" << endl;
+    cout << "  1. Add Contact" << endl;
+    cout << "  2. Edit the Contact" << endl;
+    cout << "  3. Delete Contact" << endl;
+    cout << "  4. Search Contact" << endl;
+    cout << "  5. Display All Contacts" << endl;
+    cout << "  6. Delete All Contacts" << endl;
+    cout << "  7. Exit" << endl;
+    cout << "********************************" << endl;
+
+    int Scommand;
+    cout << "  Enter the Command: ";
+    cin >> Scommand;
+    try
+    {
+        if (Scommand >= 1 && Scommand <= 7)
+        {
+            if (Scommand == 1)
+            {
+                CreateNode();
+                OflineSave();
+                Structure();
+            }
+            else if (Scommand == 2)
+            {
+                EditContacts();
+                OflineSave();
+                Structure();
+            }
+            else if (Scommand == 3)
+            {
+                DeleteContactBySearch();
+                Structure();
+            }
+            else if (Scommand == 4)
+            {
+                Search();
+                Structure();
+            }
+            else if (Scommand == 5)
+            {
+                Display();
+                OflineSave();
+                Structure();
+            }
+            else if (Scommand == 6)
+            {
+                DeleteAllContacts();
+                OflineSave();
+                Structure();
+            }
+            else if (Scommand == 7)
+            {
+                cout << "Exiting the Contact Book... Goodbye!" << endl;
+                exit(0); // Terminate the program
+            }
+        }
+        else
+        {
+            throw(Scommand);
+        }
+    }
+    catch (int Scommand)
+    {
+        cout << "  You Entered an Invalid Command... Try Again" << endl;
+        Structure();
+    }
+}   	
 };
+void setColor(int color) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, color);
+}
 
 int main()
 {   
+    setColor(2);
+   string username = "Admin";
+    string password = "pass123";
+    string enteredUsername, enteredPassword;
+
+    // Admin Login
+    cout << "\n\t\t\t\t\t\t---------------------------------";
+    cout << "\n\t\t\t\t\t\t| Admin Login |\n";
+    cout << "\t\t\t\t\t\t---------------------------------\n";
+    cout << "\t\t\t\t\t\t| Enter username: ";
+    cin >> enteredUsername;
+    cout << "\t\t\t\t\t\t| Enter password: ";
+    cin >> enteredPassword;
+    cout << "\t\t\t\t\t\t---------------------------------\n\n";
+
+    if (enteredUsername != username || enteredPassword != password) {
+        cout << "\n\t\t\t\t\t\tLogin Failed! Access Denied.\n\n\n";
+        return 0; 
+    }
+
+    cout << "\n\t\t\t\t\t\t\tLogin Successful!\n\n\n";
+    setColor(5);
     ContactBook cb;
     cb.reopenCB();
-	string n;
-	cout<<"  What is Your Name: ";
-	cin>>n;
-	
-    cout<<"***********"<<endl;
-	cout<<"  "<<n<<"  WELCOME TO CONTACTBOOK      "<<endl;
-	cout<<"***********"<<endl;
-	cb.Structure();
-	return 0;
+
+
+    cout << "\t\t\t\t\t\t****************************************" << endl;
+    cout << "\t\t\t\t\t\t*                                      *" << endl;
+    cout << "\t\t\t\t\t\t*        WELCOME TO CONTACTBOOK        *" << endl;
+    cout << "\t\t\t\t\t\t*                                      *" << endl;
+    cout << "\t\t\t\t\t\t****************************************" << endl;
+
+    cb.Structure();
+
+    return 0;
 }
