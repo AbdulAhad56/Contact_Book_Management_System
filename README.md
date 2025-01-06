@@ -96,10 +96,10 @@ The application includes the following modules:
 
 ---
 
-## Contributors
-- **Roll No.: 2023-CS-454**  - **Name: Wafa Abbas**
-- **Roll No.: 2023-CS-456**  - **Name: Abdul Ahad**
-- **Roll No.: 2023-CS-480**  - **Name: Muhammad Zaman**
+## Contributors  
+- **Name: [Wafa Abbas](https://github.com/Malik-WafaAbbas)**  
+- **Name: [Abdul Ahad](https://github.com/AbdulAhad56)**  
+- **Name: [Muhammad Zaman](https://github.com/ManiXheikh)**  
 
 ---
 
