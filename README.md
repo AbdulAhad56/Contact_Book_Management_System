@@ -84,12 +84,15 @@ The application includes the following modules:
 ## Sample Outputs
 
 ![SCREENSHOT-1](assets/screenshot-1.png)
-
 ![SCREENSHOT-2](assets/screenshot-2.png)
-
 ![SCREENSHOT-3](assets/screenshot-3.png)
-
 ![SCREENSHOT-4](assets/screenshot-4.png)
+![SCREENSHOT-5](assets/screenshot-5.png)
+![SCREENSHOT-6](assets/screenshot-6.png)
+![SCREENSHOT-7](assets/screenshot-7.png)
+![SCREENSHOT-8](assets/screenshot-8.png)
+![SCREENSHOT-9](assets/screenshot-9.png)
+![SCREENSHOT-10](assets/screenshot-10.png)
 
 ---
 
