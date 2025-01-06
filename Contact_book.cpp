@@ -92,10 +92,10 @@ class ContactBook
     	{
     		bool check=false;
 	    	Node *temp=head;
-	    	cout<<"******************************************"<<endl;
+	    	cout<<""<<endl;
 	    	cout<<"  Press 1 if you want to Search By Name."<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number."<<endl;
-	    	cout<<"******************************************"<<endl;
+	    	cout<<""<<endl;
 	    	int command;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>command;
@@ -108,10 +108,10 @@ class ContactBook
 		    	{
 		        	if(temp->name==x)
 		        	{
-		        		cout<<"**********************************"<<endl;
+		        		cout<<""<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number:"<<temp->phone_number<<endl;
-		        		cout<<"**********************************"<<endl;
+		        		cout<<""<<endl;
 		        		check=true;
 		        		break;
 		        	}
@@ -131,10 +131,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"*******************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"*******************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		check=true;
 		        		break;
 		        	}
@@ -152,9 +152,9 @@ class ContactBook
 	    	Node *temp2;
 	    	if(head==NULL)
 	    	{
-	    		cout<<"*******************************"<<endl;
+	    		cout<<"*"<<endl;
 	    		cout<<"  Already Contact Book is Empty"<<endl;
-	    		cout<<"*******************************"<<endl;
+	    		cout<<"*"<<endl;
 			}
 			else
 			{
@@ -165,9 +165,9 @@ class ContactBook
 					delete temp2;
 				}
 				head=NULL;
-				cout<<"***********************************"<<endl;
+				cout<<"*"<<endl;
 				cout<<"  Successfully Deleted All Contacts"<<endl;
-	    		cout<<"***********************************"<<endl;
+	    		cout<<"*"<<endl;
 			}
 		}
 		
@@ -175,10 +175,10 @@ class ContactBook
     	{
     		
 	    	Node *temp=head;
-	    	cout<<"*****************************************"<<endl;
+	    	cout<<"*"<<endl;
 	    	cout<<"  Press 1 if you want to Search By name"<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number"<<endl;
-	    	cout<<"*****************************************"<<endl;
+	    	cout<<"*"<<endl;
 	    	int command;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>command;
@@ -192,10 +192,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->name==x)
 		        	{
-		        		cout<<"*************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		cout<<"  Name: "<<temp->name<<endl;
 		        		cout<<"  Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"*************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		Dcheck=true;
 		        		break;
 		        	}
@@ -251,10 +251,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"*****************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		cout<<"name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"*****************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		Dcheck=true;
 		        		break;
 		        	}
@@ -341,10 +341,10 @@ class ContactBook
         int EditContacts()
     	{
 	    	Node *temp=head;
-	    	cout<<"*****************************************"<<endl;
+	    	cout<<"*"<<endl;
 	    	cout<<"  Press 1 if you want to Search By Name"<<endl;
 	    	cout<<"  Press 2 if you want to Search By Number"<<endl;
-	    	cout<<"*****************************************"<<endl;
+	    	cout<<"*"<<endl;
 	    	int Ecommand;
 	    	cout<<"  Enter the Command: ";
 	    	cin>>Ecommand;
@@ -358,10 +358,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->name==x)
 		        	{
-		        		cout<<"************************"<<endl;
+		        		cout<<""<<endl;
 		        		cout<<"Name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"************************"<<endl;
+		        		cout<<""<<endl;
 		        		Echeck=true;
 		        		break;
 		        	}
@@ -403,10 +403,10 @@ class ContactBook
 	    		{
 	    	    	if(temp->phone_number==y)
 		        	{
-		        		cout<<"*************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		cout<<"Name: "<<temp->name<<endl;
 		        		cout<<"Phone Number: "<<temp->phone_number<<endl;
-		        		cout<<"*************************"<<endl;
+		        		cout<<"*"<<endl;
 		        		Echeck=true;
 		        		break;
 		        	}
@@ -537,96 +537,188 @@ class ContactBook
             	cout<<"  File is Empty so Cannot open...Sorry"<<endl;
 			}
 		}
+		
+		void BackupContacts()
+{
+    Node *temp = head;
+    ofstream backupFile("contactbook_backup.txt");
+    if (backupFile.is_open())
+    {
+        while (temp != NULL)
+        {
+            backupFile << temp->name << endl;
+            backupFile << temp->phone_number << endl;
+            temp = temp->next;
+        }
+        backupFile.close();
+        cout << "Backup created successfully in 'contactbook_backup.txt'.\n";
+    }
+    else
+    {
+        cout << "Error creating backup file.\n";
+    }
+}
+
+void RestoreContacts()
+{
+    ifstream backupFile("contactbook_backup.txt");
+    if (backupFile.is_open() && backupFile.peek() != EOF)
+    {
+        string name;
+        long long int phone_number;
+        head = NULL;  // Clear the current contact list
+
+        while (getline(backupFile, name))
+        {
+            backupFile >> phone_number;
+            backupFile.ignore(); // Ignore the newline character after phone number
+
+            Node *newContact = new Node;
+            newContact->name = name;
+            newContact->phone_number = phone_number;
+            newContact->next = NULL;
+
+            if (head == NULL)
+            {
+                newContact->prev = NULL;
+                head = newContact;
+            }
+            else
+            {
+                Node *temp = head;
+                while (temp->next != NULL)
+                {
+                    temp = temp->next;
+                }
+                temp->next = newContact;
+                newContact->prev = temp;
+            }
+        }
+        backupFile.close();
+        cout << "Contacts restored successfully from 'contactbook_backup.txt'.\n";
+    }
+    else
+    {
+        cout << "Backup file not found or is empty.\n";
+    }
+}
+
 void Structure()
 {
-    cout << "********************************" << endl;
-    cout << "  1. Add Contact" << endl;
-    cout << "  2. Edit the Contact" << endl;
-    cout << "  3. Delete Contact" << endl;
-    cout << "  4. Search Contact" << endl;
-    cout << "  5. Display All Contacts" << endl;
-    cout << "  6. Delete All Contacts" << endl;
-    cout << "  7. Exit" << endl;
-    cout << "********************************" << endl;
+	cout << "\n==========================================" << endl;
+    cout << "|         CONTACT MANAGEMENT MENU        |" << endl;
+    cout << "==========================================" << endl;
+    cout << "|  1. Add a New Contact                  |" << endl;
+    cout << "|  2. Edit an Existing Contact           |" << endl;
+    cout << "|  3. Delete a Contact                   |" << endl;
+    cout << "|  4. Search for a Contact               |" << endl;
+    cout << "|  5. Display All Contacts               |" << endl;
+    cout << "|  6. Delete All Contacts                |" << endl;
+    cout << "|  7. Create a Backup                    |" << endl;
+    cout << "|  8. Restore Contacts from Backup       |" << endl;
+    cout << "|  9. Exit                               |" << endl;
+    cout << "==========================================" << endl;
 
-    int Scommand;
-    cout << "  Enter the Command: ";
-    cin >> Scommand;
+    int command;
+    cout << "Enter the Command: ";
+    cin >> command;
+    cout << "==========================================\n" << endl;
+
     try
     {
-        if (Scommand >= 1 && Scommand <= 7)
+        if (command >= 1 && command <= 9)
         {
-            if (Scommand == 1)
+            if (command == 1)
             {
                 CreateNode();
                 OflineSave();
                 Structure();
             }
-            else if (Scommand == 2)
+            else if (command == 2)
             {
                 EditContacts();
                 OflineSave();
                 Structure();
             }
-            else if (Scommand == 3)
+            else if (command == 3)
             {
                 DeleteContactBySearch();
                 Structure();
             }
-            else if (Scommand == 4)
+            else if (command == 4)
             {
                 Search();
                 Structure();
             }
-            else if (Scommand == 5)
+            else if (command == 5)
             {
                 Display();
                 OflineSave();
                 Structure();
             }
-            else if (Scommand == 6)
+            else if (command == 6)
             {
                 DeleteAllContacts();
                 OflineSave();
                 Structure();
             }
-            else if (Scommand == 7)
+            else if (command == 7)
             {
-                cout << "Exiting the Contact Book... Goodbye!" << endl;
-                exit(0); // Terminate the program
+                BackupContacts();
+                Structure();
+            }
+            else if (command == 8)
+            {
+                RestoreContacts();
+                Structure();
+            }
+            else if (command == 9)
+            {
+            	cout << "\n==========================================" << endl;
+                cout << "|         EXITING CONTACT BOOK           |" << endl;
+                cout << "==========================================" << endl;
+                cout << "|   Thank you for using the Contact Book |" << endl;
+                cout << "|   Your session has ended.              |" << endl;
+                cout << "|   Goodbye and have a great day!        |" << endl;
+                cout << "==========================================" << endl;
+                cout << "|   Exiting the Contact Book... Goodbye! |" << endl;
+                cout << "==========================================" << endl;
+                exit(0); 
             }
         }
         else
         {
-            throw(Scommand);
+            throw(command);
         }
     }
-    catch (int Scommand)
+    catch (int command)
     {
-        cout << "  You Entered an Invalid Command... Try Again" << endl;
+        cout << "You Entered an Invalid Command... Try Again" << endl;
         Structure();
     }
-}   	
+}
+
 };
 void setColor(int color) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, color);
 }
 
+
 int main()
 {   
     setColor(2);
    string username = "Admin";
-    string password = "pass123";
+    string password = "pass";
     string enteredUsername, enteredPassword;
 
     // Admin Login
     cout << "\n\t\t\t\t\t\t---------------------------------";
-    cout << "\n\t\t\t\t\t\t| Admin Login |\n";
+    cout << "\n\t\t\t\t\t\t|          Admin Login          |\n";
     cout << "\t\t\t\t\t\t---------------------------------\n";
-    cout << "\t\t\t\t\t\t| Enter username: ";
+    cout << "\t\t\t\t\t\t| Enter username:    ";
     cin >> enteredUsername;
-    cout << "\t\t\t\t\t\t| Enter password: ";
+    cout << "\t\t\t\t\t\t| Enter password:    ";
     cin >> enteredPassword;
     cout << "\t\t\t\t\t\t---------------------------------\n\n";
 
@@ -635,17 +727,18 @@ int main()
         return 0; 
     }
 
-    cout << "\n\t\t\t\t\t\t\tLogin Successful!\n\n\n";
+    cout << "\n\t\t\t\t\t\t|------Login Successfully!------|\n\n\n";
     setColor(5);
     ContactBook cb;
     cb.reopenCB();
 
 
-    cout << "\t\t\t\t\t\t****************************************" << endl;
-    cout << "\t\t\t\t\t\t*                                      *" << endl;
-    cout << "\t\t\t\t\t\t*        WELCOME TO CONTACTBOOK        *" << endl;
-    cout << "\t\t\t\t\t\t*                                      *" << endl;
-    cout << "\t\t\t\t\t\t****************************************" << endl;
+    cout << "\t\t\t\t\t\t  **********************************************" << endl;
+    cout << "\t\t\t\t\t\t  *                                            *" << endl;
+    cout << "\t\t\t\t\t\t  *      WELCOME TO YOUR CONTACT BOOK          *" << endl;
+    cout << "\t\t\t\t\t\t  *      YOUR CONTACTS, ALWAYS ORGANIZED       *" << endl;
+    cout << "\t\t\t\t\t\t  *                                            *" << endl;
+    cout << "\t\t\t\t\t\t  **********************************************" << endl;
 
     cb.Structure();
 
